@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+
+    android:clipToPadding="true"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="20dp"
+    android:layout_marginTop="20dp"
+    android:id="@+id/card_view">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/list_card_background"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/date_background"
+
+            android:gravity="center_horizontal"
+            android:text="25"
+            android:textColor="#fff"
+
+            android:textSize="36dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/month"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:text="JAN"
+
+            android:textColor="#fff"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/day"
+            app:layout_constraintEnd_toEndOf="@+id/day"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/day"
+            app:layout_constraintTop_toTopOf="@+id/day"
+            app:layout_constraintVertical_bias="0.813" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Title"
+            android:textColor="#000"
+            android:textSize="24sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/day"
+            app:layout_constraintStart_toEndOf="@+id/day" />
+
+        <TextView
+            android:id="@+id/cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/category_background"
+            android:backgroundTint="@color/black"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="2dp"
+            android:text="Category"
+            android:textColor="#fff"
+            app:layout_constraintBaseline_toBaselineOf="@+id/month"
+            app:layout_constraintStart_toStartOf="@+id/name" />
+
+        <ImageView
+            android:id="@+id/backp"
+
+            android:layout_width="39dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="168dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/cat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:srcCompat="@drawable/complete" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
