@@ -36,13 +36,13 @@ TodoApp is a simple Android application for managing your tasks and to-do lists.
   </a>
 
    <a href="https://github.com/SkShoheb33/TodoApp/blob/main/screenshots/f.jpg" target="_blank">
-    <img src="screenshots/e.jpg" alt="Completed Tasks" width="150"/>
+    <img src="screenshots/f.jpg" alt="Completed Tasks" width="150"/>
   </a>
    <a href="https://github.com/SkShoheb33/TodoApp/blob/main/screenshots/g.jpg" target="_blank">
-    <img src="screenshots/e.jpg" alt="Completed Tasks" width="150"/>
+    <img src="screenshots/g.jpg" alt="Completed Tasks" width="150"/>
   </a>
    <a href="https://github.com/SkShoheb33/TodoApp/blob/main/screenshots/h.jpg" target="_blank">
-    <img src="screenshots/e.jpg" alt="Completed Tasks" width="150"/>
+    <img src="screenshots/h.jpg" alt="Completed Tasks" width="150"/>
   </a>
 
 </div>
