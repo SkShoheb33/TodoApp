@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/create_edit_background"
+    android:background="@color/white"
     tools:context=".CreateEditActivity">
 
     <ImageView
@@ -38,7 +38,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/create_edit_background"
+            android:background="@color/white"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +64,7 @@
             android:id="@+id/desc"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:background="@drawable/create_edit_background"
+            android:background="@color/white"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -139,7 +139,7 @@
             android:id="@id/categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/create_edit_background"
+            android:background="@color/white"
             android:inputType="none"
             android:textColor="@color/black"
             tools:ignore="LabelFor" />
