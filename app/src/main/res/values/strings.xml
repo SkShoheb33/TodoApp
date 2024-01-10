@@ -22,4 +22,7 @@
     <string name="time_and_date">Time and date</string>
     <string name="text">text</string>
     <string name="option">option</string>
+    <string name="to_start">To Start</string>
+    <string name="in_progress">In-Progress</string>
+    <string name="status">Status</string>
 </resources>

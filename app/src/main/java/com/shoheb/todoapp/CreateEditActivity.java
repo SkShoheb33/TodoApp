@@ -3,31 +3,28 @@ package com.shoheb.todoapp;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Switch;
 import android.widget.TimePicker;
-//import android.widget.Toast;
 
 import com.shoheb.todoapp.databinding.ActivityCreateEditBinding;
-import com.shoheb.todoapp.databinding.ActivityMainBinding;
 
 import java.util.Calendar;
 import java.util.Date;
 
 public class CreateEditActivity extends AppCompatActivity {
-
+    AlertDialog.Builder builder;
     String[] categories = {"Entertainment", "Studying", "Health"};
     ActivityCreateEditBinding binding;
     private DatabaseHelper databaseHelper;
@@ -90,16 +87,39 @@ public class CreateEditActivity extends AppCompatActivity {
                         String.valueOf(binding.dateTime.getText()),
                         (new Date()).toString()
                 );
+                builder = new AlertDialog.Builder(CreateEditActivity.this);
                 if(isEdit){
-                    databaseHelper.updateTask(id,item);
-//                    Toast.makeText(CreateEditActivity.this,"task updated successfully",Toast.LENGTH_SHORT).show();
+                    if(time.equals("")||date.equals("")||binding.name.getText().toString().equals("")||binding.desc.getText().toString().equals("")||binding.categories.getText().toString().equals("")){
+
+
+                        builder.setTitle("Alert !!").setMessage("Please enter all inputs").setCancelable(true).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                finish();
+                            }
+                        }).show();
+                    }else{
+                        databaseHelper.updateTask(id,item);
+                    }
+
                 }
                 else{
+                    if(time.equals("")||date.equals("")||binding.name.getText().toString().equals("")||binding.desc.getText().toString().equals("")||binding.categories.getText().toString().equals("")){
 
-                    databaseHelper.insertTask(item);
-//                    Toast.makeText(CreateEditActivity.this,"task Added successfully",Toast.LENGTH_SHORT).show();
+
+                        builder.setTitle("Alert !!").setMessage("Please enter all inputs").setCancelable(true).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+
+                            }
+                        }).show();
+                    }else{
+                        databaseHelper.insertTask(item);
+                    }
+
                 }
-
                 databaseHelper.close();
                 Intent intent = new Intent(CreateEditActivity.this,MainActivity.class);
                 startActivity(intent);

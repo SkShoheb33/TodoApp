@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="@string/text"
+            android:text="@string/status"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -118,7 +118,7 @@
                 android:id="@+id/toStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/option"
+                android:text="@string/to_start"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -126,7 +126,7 @@
                 android:id="@+id/inProgress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/option"
+                android:text="@string/in_progress"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -138,7 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginTop="24dp"
-        android:text="@string/text"
+        android:text="@string/priority"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/time1"

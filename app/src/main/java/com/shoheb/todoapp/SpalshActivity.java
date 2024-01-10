@@ -22,6 +22,6 @@ public class SpalshActivity extends AppCompatActivity {
                 startActivity(new Intent(SpalshActivity.this, MainActivity.class));
                 finish();
             }
-        },40);
+        },1500);
     }
 }
