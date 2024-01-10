@@ -77,6 +77,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }else{
             viewHolder.day.setBackgroundColor(Color.parseColor("#49B240"));
         }
+        if(item.getItem_cat().equals("Entertainment")){
+            viewHolder.cat.setBackgroundColor(Color.parseColor("#F89E4A"));
+
+        }else if (item.getItem_cat().equals("Studying")){
+            viewHolder.cat.setBackgroundColor(Color.parseColor("#87CEEB"));
+
+        }else if (item.getItem_cat().equals("Health")){
+            viewHolder.cat.setBackgroundColor(Color.parseColor("#023020"));
+        }
         viewHolder.cat.setText(item.getItem_cat());
         viewHolder.month.setText(months.get(Integer.parseInt(date[1])));
         viewHolder.name.setText(item.getItem_name());
