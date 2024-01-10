@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -35,9 +37,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
-        onCreate(db);
+        try {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+            onCreate(db);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
     public void insertTask(Item item){
         db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -48,7 +55,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_6,item.getItem_status());
         contentValues.put(COL_7,item.getDue_date());
         contentValues.put(COL_8,item.getCreated_date());
-        db.insert(TABLE_NAME,null,contentValues);
+        long id = db.insert(TABLE_NAME,null,contentValues);
+        item.setItem_id((int)id);
     }
     public void updateTask(int id,Item item){
         db = this.getWritableDatabase();
@@ -60,9 +68,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_6,item.getItem_status());
         contentValues.put(COL_7,item.getDue_date());
         contentValues.put(COL_8,item.getCreated_date());
+        Log.d("Updated id : ",String.valueOf(id));
         db.update(TABLE_NAME,contentValues,"ID=?",new String[]{String.valueOf(id)});
     }
-    public void DeleteTask(int id){
+    public void deleteTask(int id){
         db = this.getWritableDatabase();
         db.delete(TABLE_NAME,"ID=?",new String[]{String.valueOf(id)});
     }
@@ -86,6 +95,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         item.setDue_date(cursor.getString(cursor.getColumnIndex(COL_7)));
                         item.setCreated_date(cursor.getString(cursor.getColumnIndex(COL_8)));
                         items.add(item);
+                        item.setItem_id(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COL_1))));
+                        Log.d("item get",String.valueOf(item.getItem_id()));
+                        Log.d("item get",item.getItem_name());
                     }while (cursor.moveToNext());
                 }
             }

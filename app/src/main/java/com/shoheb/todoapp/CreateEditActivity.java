@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,8 +16,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TimePicker;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.shoheb.todoapp.databinding.ActivityCreateEditBinding;
 import com.shoheb.todoapp.databinding.ActivityMainBinding;
@@ -32,6 +34,8 @@ public class CreateEditActivity extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> cats;
     private String date,time;
+    private boolean isEdit = false;
+    private int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,25 @@ public class CreateEditActivity extends AppCompatActivity {
         binding = ActivityCreateEditBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        Intent intent = getIntent();
+        if(intent.getStringExtra("name")!=null){
+            id = (intent.getIntExtra("id",0));
+            binding.name.setText(intent.getStringExtra("name"));
+            binding.desc.setText(intent.getStringExtra("desc"));
+            binding.categories.setText(intent.getStringExtra("cat"),true);
+           String pri = intent.getStringExtra("pri");
+            if(pri.equals("High"))
+                binding.radioButton.setChecked(true);
+            else if(pri.equals("Medium"))
+                binding.radioButton2.setChecked(true);
+            else
+                binding.radioButton3.setChecked(true);
+            binding.dateTime.setText(intent.getStringExtra("dueDate"));
+            String[] temp = intent.getStringExtra("dueDate").split("-");
+            date = temp[0];
+            time = temp[1];
+            isEdit = true;
+        }
         databaseHelper = new DatabaseHelper(this);
         autoCompleteTextView = binding.categories;
         cats = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, categories);
@@ -63,15 +86,24 @@ public class CreateEditActivity extends AppCompatActivity {
                         String.valueOf(binding.desc.getText()),
                         String.valueOf(binding.categories.getText()),
                         ((RadioButton)findViewById(rg.getCheckedRadioButtonId())).getText().toString(),
-                        "Start",
+                        "To Start",
                         String.valueOf(binding.dateTime.getText()),
                         (new Date()).toString()
                 );
-                databaseHelper.insertTask(item);
+                if(isEdit){
+                    databaseHelper.updateTask(id,item);
+//                    Toast.makeText(CreateEditActivity.this,"task updated successfully",Toast.LENGTH_SHORT).show();
+                }
+                else{
+
+                    databaseHelper.insertTask(item);
+//                    Toast.makeText(CreateEditActivity.this,"task Added successfully",Toast.LENGTH_SHORT).show();
+                }
+
                 databaseHelper.close();
                 Intent intent = new Intent(CreateEditActivity.this,MainActivity.class);
                 startActivity(intent);
-                Toast.makeText(CreateEditActivity.this,"task Added successfully",Toast.LENGTH_SHORT).show();
+
             }
         });
 

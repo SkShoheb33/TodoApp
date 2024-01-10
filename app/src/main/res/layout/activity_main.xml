@@ -66,8 +66,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="Completed"/>
+                    android:textSize="16sp"
+                    android:text="@string/list"/>
             </LinearLayout>
 
             <LinearLayout
@@ -81,8 +81,7 @@
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
+                app:layout_constraintTop_toTopOf="parent">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,8 +90,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:text="Completed"/>
+                    android:textSize="16sp"
+                    android:text="@string/completed"/>
 
             </LinearLayout>
 
@@ -133,9 +132,9 @@
             android:gravity="center"
             android:padding="8dp"
             android:rotation="0"
-            android:text="Categories"
+            android:text="@string/categories"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/filter_btn"
@@ -152,9 +151,9 @@
             android:padding="8dp"
             android:rotation="0"
             android:rotationY="0"
-            android:text="Priorities"
+            android:text="@string/priorities"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/categories"
@@ -172,9 +171,9 @@
             android:padding="8dp"
             android:rotation="0"
             android:rotationX="0"
-            android:text="Time"
+            android:text="@string/time"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/priorities"

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="40dp"
-    android:background="@color/white"
+    android:background="@drawable/splash_activity_background"
+
     tools:context=".SpalshActivity">
 
     <ImageView
@@ -16,18 +17,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:text="Categorize, prioritize and organize your daily tasks"
+        android:text="@string/slogon"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="#A1045A"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:fontFamily="@font/lemon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -36,9 +40,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ToDo"
-        android:textColor="@color/black"
-        android:textSize="34sp"
+        android:text="@string/name"
+        android:fontFamily="@font/lemon"
+        android:textColor="#A1045A"
+        android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"

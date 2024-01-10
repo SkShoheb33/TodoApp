@@ -3,13 +3,17 @@ package com.shoheb.todoapp;
 import java.util.Date;
 
 public class Item {
+
+    private int item_id;
     private String item_name, item_desc;
     private String item_cat;
     private String item_priority;
     private String item_status;
     private String due_date, created_date;
+
     public  Item(){}
     public Item(String item_name, String item_desc, String item_cat, String item_priority, String item_status, String due_date, String created_date) {
+
         this.item_name = item_name;
         this.item_desc = item_desc;
         this.item_cat = item_cat;
@@ -17,6 +21,13 @@ public class Item {
         this.item_status = item_status;
         this.due_date = due_date;
         this.created_date = created_date;
+    }
+    public int getItem_id() {
+        return item_id;
+    }
+
+    public void setItem_id(int item_id) {
+        this.item_id = item_id;
     }
 
     public String getItem_name() {
@@ -73,5 +84,18 @@ public class Item {
 
     public void setCreated_date(String created_date) {
         this.created_date = created_date;
+    }
+    @Override
+    public String toString() {
+        return "Item{" +
+                "item_id=" + item_id +
+                ", item_name='" + item_name + '\'' +
+                ", item_desc='" + item_desc + '\'' +
+                ", item_cat='" + item_cat + '\'' +
+                ", item_priority='" + item_priority + '\'' +
+                ", item_status='" + item_status + '\'' +
+                ", due_date='" + due_date + '\'' +
+                ", created_date='" + created_date + '\'' +
+                '}';
     }
 }

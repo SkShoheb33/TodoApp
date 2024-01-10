@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/details_background"
@@ -15,7 +14,8 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/back"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/name1"
@@ -23,9 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
-        android:text="Title"
+        android:text="@string/text"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backp" />
 
@@ -34,9 +35,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+
         android:background="@drawable/category_background"
-        android:text="Category"
-        android:textColor="@color/black"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/text"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/name1"
         app:layout_constraintTop_toBottomOf="@+id/name1" />
@@ -46,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="24 Jan"
+        android:text="@string/text"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/cat1"
@@ -58,7 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:padding="20dp"
-        android:text="This is to describe how the description will look like as it is very important to describe something clearly before you do any thing."
+        android:text="@string/slogon"
+        android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="High"
+        android:text="@string/high"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -94,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Status"
+            android:text="@string/text"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -104,22 +111,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:checkedButton="@id/radioButton4"
+            android:checkedButton="@id/toStart"
             android:orientation="vertical">
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/toStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="To Start"
+                android:text="@string/option"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/radioButton5"
+                android:id="@+id/inProgress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="In-Progress"
+                android:text="@string/option"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -131,7 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginTop="24dp"
-        android:text="Priority :"
+        android:text="@string/text"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/time1"
@@ -145,7 +152,8 @@
         android:padding="3dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:text="Completed"
+        android:text="@string/completed"
+        android:backgroundTint="@color/orange"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -154,12 +162,14 @@
 
     <ImageView
         android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit" />
+        app:srcCompat="@drawable/edit"
+        android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

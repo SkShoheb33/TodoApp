@@ -17,6 +17,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private ArrayList<Item> localDataSet;
     private SelectListener listener;
 
+    public void setItems(ArrayList<Item> items) {
+        this.localDataSet = items;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView day;
         private final TextView month;
